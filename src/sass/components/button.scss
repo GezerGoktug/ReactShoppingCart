@@ -1,0 +1,121 @@
+@import "../abstracts/variables";
+
+.btn {
+  cursor: pointer;
+  border: none;
+  //! Base buton
+  &-normal {
+    @extend .btn;
+    padding: 10px 20px;
+    border: 2px solid $thirdColor;
+    color: $thirdColor;
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+    &:hover {
+      background-color: $thirdColor;
+      color: $primaryColor;
+    }
+  }
+  //! Sepete ekleme butonu
+  &-product {
+    @extend .btn;
+    background-color: $fourthColor;
+    color: $primaryColor;
+    padding: 10px;
+    position: relative;
+    transition: box-shadow 0.3s ease-out;
+    &:hover {
+      box-shadow: 0px 0px 12px $fourthColor;
+      &::after {
+        width: 100%;
+        height: 100%;
+        border: 2px solid $fourthColor;
+        padding: 5px;
+        top: -7px;
+        left: -7px;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      transition: padding 0.3s ease-in, top 0.3s ease-in, left 0.3s ease-in;
+      padding: 10px;
+      width: 0%;
+      height: 0%;
+    }
+    &.added {
+      background-color: green;
+      &::after {
+        border-width: 0px;
+      }
+    }
+  }
+  //! Sepetteki ödeme butonu
+  &-pay {
+    @extend .btn;
+    padding: 10px 20px;
+    color: white;
+    background-color: forestgreen;
+    transition: all 0.3s ease-in;
+    margin: 15px 0;
+    &:hover {
+      background-color: darkgreen;
+    }
+  }
+  //! Ürün miktar artırma butonları
+  &-howmany {
+    @extend .btn;
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    color: aliceblue;
+    &-increase {
+      @extend .btn-howmany;
+      background-color: darkgreen;
+    }
+    &-decrease {
+      @extend .btn-howmany;
+      background-color: darkred;
+    }
+  }
+  //! Listeyi temizleme butonu
+  &-remove-list {
+    @extend .btn;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    font-size: large;
+    font-weight: 500;
+    padding: 10px 0;
+    color: darkred;
+    border: 2px groove darkred;
+    background-color: transparent;
+    transition: all 0.4s ease-out;
+    &:hover {
+      background-color: darkred;
+      color: white;
+    }
+  }
+  //! Footer iletişim butonu
+  &-contact {
+    @extend .btn;
+    width: 100%;
+    padding: 8px;
+    background-color: transparent;
+    color: $textColor;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease-in;
+    border: 2px groove $textColor;
+    &:hover {
+      color: aliceblue;
+      background-color: $textColor;
+      border: 2px groove $textColor;
+    }
+  }
+}

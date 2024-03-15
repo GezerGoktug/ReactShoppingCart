@@ -1,0 +1,18 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+.filtre-tag {
+  padding: 5px 15px;
+  background-color: $thirdColor;
+  border-radius: 20px;
+  color: aliceblue;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  @include flexCenter;
+  gap: 10px;
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+  &.active {
+    background-color: $fourthColor;
+  }
+}

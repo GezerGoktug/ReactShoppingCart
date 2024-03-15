@@ -1,0 +1,106 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+nav {
+  background-color: aliceblue;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  height: 90px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  .container {
+    @include flexBetween;
+    .logo {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      font-style: italic;
+      .toggle-bar-icon {
+        display: none;
+      }
+      #second-span {
+        color: $fourthColor;
+        font-weight: 700;
+      }
+    }
+    ul {
+      @include flexCenter;
+      gap: 30px;
+      li {
+        font-size: 16px;
+        a:not(a.icon-link) {
+          font-weight: 300;
+          transition: color 0.3s ease-in;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0%;
+            border-bottom: 2px solid rgb(0, 49, 70);
+            transition: all 0.3s ease-in;
+          }
+          &:hover {
+            color: rgb(0, 49, 70);
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+        a {
+          color: $textColor;
+          position: relative;
+          cursor: pointer;
+          .shopping-badge {
+            position: absolute;
+            right: -15px;
+            top: -5px;
+            @include flexCenter;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@include respond-to($medium-screen) {
+  nav .container {
+    .logo {
+      .toggle-bar-icon {
+        display: inline;
+        margin-right: 10px;
+      }
+    }
+    .navigation-links {
+      display: none;
+    }
+  }
+}
+@include respond-to($small-screen) {
+  nav .container {
+    .logo {
+      font-size: 16px;
+    }
+    ul {
+      gap: 20px;
+      li {
+        font-size: 14px;
+        a .shopping-badge {
+          width: 14px;
+          height: 14px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+section {
+  background-color: $primaryColor;
+  height: 100%;
+  overflow: hidden;
+  .container {
+    display: flex;
+    align-items: center;
+    .hero-title {
+      width: 50%;
+      h2 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+    }
+    .hero-img {
+      width: 50%;
+      height: 100vh;
+      @include flexCenter;
+      img {
+        filter: drop-shadow(2px 2px 6px black);
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+}
+@include respond-to($large-screen) {
+  section .container {
+    .hero-title {
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@include respond-to($medium-screen) {
+  section .container {
+    flex-direction: column;
+    .hero-title {
+      margin-top: 150px;
+      width: 100%;
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .hero-img {
+      margin-right: auto;
+      width: 70%;
+      height: 400px;
+    }
+  }
+}
+@include respond-to($small-screen) {
+  section .container {
+    flex-direction: column;
+    .hero-title {
+      margin-top: 150px;
+      width: 100%;
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .hero-img {
+      margin-right: 40%;
+      width: 100%;
+      height: 400px;
+    }
+  }
+}
+@include respond-to($x-small-screen) {
+  section .container {
+    .hero-img {
+      margin-right: 60%;
+      width: 100%;
+      transform: scale(1.5, 1.5);
+      height: 400px;
+    }
+  }
+}

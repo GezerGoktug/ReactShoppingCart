@@ -1,0 +1,22 @@
+@import "../abstracts/mixins";
+//! Ürün arama inputu
+.input-search {
+  @include flexCenter;
+  gap: 10px;
+  border-bottom: 2px solid black;
+  padding: 5px;
+  input {
+    border: none;
+    outline: none;
+  }
+}
+//! Footer iletişim inputu
+.input-contact {
+  width: 100%;
+  input {
+    outline: none;
+    width: 100%;
+    padding: 5px;
+    border: 2px groove rgba(0, 0, 0, 0.5);
+  }
+}
